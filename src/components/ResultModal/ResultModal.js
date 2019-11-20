@@ -9,7 +9,9 @@ function ResultModal (props) {
 
   let content = null
   if (loading) {
-    content = <div>Loading</div>
+    content = <div className='placeholder-text'>Loading</div>
+  } else if (allResults.length === 0) {
+    content = <div className='placeholder-text'>No results to show</div>
   } else {
     content = allResults.map((text) => (
       <p>

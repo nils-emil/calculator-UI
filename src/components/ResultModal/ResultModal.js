@@ -1,8 +1,8 @@
 import React from 'react'
 import './styles.scss'
-import useAllCalculationsRepo from '../../hooks/useCalculationsRepo'
-import getOperator from '../../hooks/getOperator'
-import getAbriviatedNumber from '../../hooks/getAbriviatedNumber'
+import useAllCalculationsRepo from '../../functions/useCalculationsRepo'
+import getOperator from '../../functions/getOperator'
+import getAbriviatedNumber from '../../functions/getAbriviatedNumber'
 
 function ResultModal (props) {
   const [loading, allResults] = useAllCalculationsRepo()
@@ -13,8 +13,12 @@ function ResultModal (props) {
   } else {
     content = allResults.map((text) => (
       <p>
+        {getAbriviatedNumber(text.num1, 8) +
+        getOperator(text.operation) +
+        getAbriviatedNumber(text.num2, 8) +
+        '=' +
+        getAbriviatedNumber(text.result, 8)}
         <hr/>
-        {getAbriviatedNumber(text.num1, 8)} {getOperator(text.operation)} {getAbriviatedNumber(text.num2, 8)} = {getAbriviatedNumber(text.num1, 8)}
       </p>
     ))
   }

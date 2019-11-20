@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
 import Button from './components/Button/Button'
-import useCalculationsRepo from './hooks/useCalculator'
-import getOperationName from '../src/hooks/getOperatorName'
-import getAbriviatedNumber from './hooks/getAbriviatedNumber'
-import { BTN_DARK_GRAY, BTN_LIGHT_GRAY, BTN_ORANGE } from './hooks/buttonTypes'
+import useCalculationsRepo from './functions/useCalculator'
+import getOperationName from '../src/functions/getOperatorName'
+import getAbriviatedNumber from './functions/getAbriviatedNumber'
+import { BTN_DARK_GRAY, BTN_LIGHT_GRAY, BTN_ORANGE } from './constants/buttonTypes'
 import {
   DECIMAL_POINT,
   DIVISION_SYMBOL,
@@ -13,7 +13,7 @@ import {
   MINUS_SYMBOL,
   MULIPLICATION_SYMBOL,
   PLUS_SYMBOL
-} from './hooks/operators'
+} from './constants/operators'
 import ResultModal from './components/ResultModal/ResultModal'
 
 axios.defaults.baseURL = 'http://localhost:8080'
@@ -25,12 +25,11 @@ function App() {
   const [num2, setNum2] = useState('')
   const [isModalOpen, setModalOpen] = useState(false)
   const [operation, setOperation] = useState('')
+  // if num1 isnt active then that means num2 is active
   const [num1Active, setNum1Active] = useState(true)
-  const [result, calculateResult] = useCalculationsRepo(num1, num2, operation)
+  const [result, error, calculateResult] = useCalculationsRepo(num1, num2, operation)
 
-  useEffect(() => {
-
-  }, [num1, num2, operation])
+  useEffect(() => {}, [num1, num2, operation])
 
   function appendValueToActiveNumber (value) {
     if (num1Active) {
@@ -52,6 +51,14 @@ function App() {
   }
 
   const operatorClickedHandler = (operation) => {
+    if (operation === MINUS_SYMBOL && num1Active && num1.length === 0) {
+      setNum1('-0')
+      return
+    }
+    if (operation === MINUS_SYMBOL && !num1Active && num2.length === 0) {
+      setNum2('-0')
+      return
+    }
     if (num1Active) {
       setNum1Active(false)
     }
@@ -85,7 +92,7 @@ function App() {
             {getAbriviatedNumber(num1, 13)} {operation} {getAbriviatedNumber(num2, 13)}
           </div>
           <div className={resultClasses}>
-             {getAbriviatedNumber(result, 8)}
+             {error ? <p className="error">{error}</p> : getAbriviatedNumber(result, 8)}
           </div>
         </span>
         </header>

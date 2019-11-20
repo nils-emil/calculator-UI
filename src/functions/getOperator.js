@@ -1,4 +1,4 @@
-import { DIVISION, DIVISION_SYMBOL, MINUS, MINUS_SYMBOL, MULIPLICATION_SYMBOL, PLUS, PLUS_SYMBOL } from './operators'
+import { DIVISION, DIVISION_SYMBOL, MINUS, MINUS_SYMBOL, MULIPLICATION_SYMBOL, PLUS, PLUS_SYMBOL } from '../constants/operators'
 
 function getOperator (string) {
   if (string === DIVISION) return DIVISION_SYMBOL

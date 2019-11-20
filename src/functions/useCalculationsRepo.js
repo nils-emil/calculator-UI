@@ -7,7 +7,7 @@ function useAllCalculationsRepo () {
   const [loading, setLoading] = useState(true)
 
   function refreshAllCalculations () {
-    Axios.get('/calculate/results')
+    Axios.get('/getResults')
       .subscribe(result => {
         console.log(result.data)
         setResult(result.data)

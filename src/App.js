@@ -19,8 +19,7 @@ import ResultModal from './components/ResultModal/ResultModal'
 axios.defaults.baseURL = 'http://localhost:8080'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
-
-function App() {
+function App () {
   const [num1, setNum1] = useState('')
   const [num2, setNum2] = useState('')
   const [isModalOpen, setModalOpen] = useState(false)
@@ -81,35 +80,35 @@ function App() {
     return (num1Active) ? num1.indexOf('.') > -1 : num2.indexOf('.') > -1
   }
 
-  let resultClasses = 'calculation-result'
+  const resultClasses = 'calculation-result'
 
   return (
     <React.Fragment>
       <div className="App">
         <header className="calculator-result">
-        <span>
-          <div className='calculation'>
-            {getAbriviatedNumber(num1, 13)} {operation} {getAbriviatedNumber(num2, 13)}
-          </div>
-          <div className={resultClasses}>
-             {error ? <p className="error">{error}</p> : getAbriviatedNumber(result, 8)}
-          </div>
-        </span>
+          <span>
+            <div className='calculation'>
+              {getAbriviatedNumber(num1, 13)} {operation} {getAbriviatedNumber(num2, 13)}
+            </div>
+            <div className={resultClasses}>
+              {error ? <p className="error">{error}</p> : getAbriviatedNumber(result, 8)}
+            </div>
+          </span>
         </header>
         <section>
           <div>
-            <Button wideButton={false} onButtonClick={() => {clearCalculator()}} value={'C'} color={BTN_LIGHT_GRAY}/>
+            <Button wideButton={false} onButtonClick={() => { clearCalculator() }} value={'C'} color={BTN_LIGHT_GRAY}/>
             <Button wideButton={true} onButtonClick={setModalOpen} value={'Results'}
-                    color={BTN_LIGHT_GRAY}/>
+              color={BTN_LIGHT_GRAY}/>
             <Button wideButton={false} onButtonClick={operatorClickedHandler} value={DIVISION_SYMBOL}
-                    color={BTN_ORANGE}/>
+              color={BTN_ORANGE}/>
           </div>
           <div>
             <Button wideButton={false} onButtonClick={calculatorClickedHandler} value={7} color={BTN_DARK_GRAY}/>
             <Button wideButton={false} onButtonClick={calculatorClickedHandler} value={8} color={BTN_DARK_GRAY}/>
             <Button wideButton={false} onButtonClick={calculatorClickedHandler} value={9} color={BTN_DARK_GRAY}/>
             <Button wideButton={false} onButtonClick={operatorClickedHandler} value={MULIPLICATION_SYMBOL}
-                    color={BTN_ORANGE}/>
+              color={BTN_ORANGE}/>
           </div>
           <div>
             <Button wideButton={false} onButtonClick={calculatorClickedHandler} value={4} color={BTN_DARK_GRAY}/>
@@ -126,18 +125,18 @@ function App() {
           <div>
             <Button wideButton={true} onButtonClick={calculatorClickedHandler} value={0} color={BTN_DARK_GRAY}/>
             <Button wideButton={false}
-                    disabled={currentActiveInputAlreadyHasDecimal()}
-                    onButtonClick={calculatorClickedHandler}
-                    color={BTN_ORANGE}
-                    value={DECIMAL_POINT}
+              disabled={currentActiveInputAlreadyHasDecimal()}
+              onButtonClick={calculatorClickedHandler}
+              color={BTN_ORANGE}
+              value={DECIMAL_POINT}
             />
-            <Button wideButton={false} onButtonClick={() => {calculateRes()}} value={EQUALS_SYMBOL} color={BTN_ORANGE}/>
+            <Button wideButton={false} onButtonClick={() => { calculateRes() }} value={EQUALS_SYMBOL} color={BTN_ORANGE}/>
           </div>
         </section>
       </div>
-      {isModalOpen ? <ResultModal onCloseClick={() => {setModalOpen(false)}}></ResultModal> : ''}
+      {isModalOpen ? <ResultModal onCloseClick={() => { setModalOpen(false) }}></ResultModal> : ''}
     </React.Fragment>
-  );
+  )
 }
 
-export default App;
+export default App

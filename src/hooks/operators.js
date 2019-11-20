@@ -1,0 +1,11 @@
+export const PLUS_SYMBOL = '+'
+export const MINUS_SYMBOL = '-'
+export const DIVISION_SYMBOL = '÷'
+export const MULIPLICATION_SYMBOL = '×'
+export const EQUALS_SYMBOL = '='
+export const DECIMAL_POINT = '.'
+
+export const PLUS = 'sum'
+export const MINUS = 'sub'
+export const DIVISION = 'div'
+export const MULIPLICATION = 'prod'

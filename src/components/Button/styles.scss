@@ -1,0 +1,33 @@
+.btn {
+  font-weight: 500;
+  font-size: 1.25rem;
+  border: none;
+  margin: 0.5rem;
+
+  &-narrow {
+    border-radius: 50%;
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  &-wide {
+    border-radius: 3rem/3rem;
+    height: 3.5rem;
+    width: 8rem;
+  }
+
+  &-gray--light {
+    background-color: rgb(167, 167, 167);
+    color: black;
+  }
+
+  &-gray--dark {
+    background-color: rgb(53, 53, 53);
+    color: white;
+  }
+
+  &-orange {
+    background-color: #fe9505;
+    color: white;
+  }
+}

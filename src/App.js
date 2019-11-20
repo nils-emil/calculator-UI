@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './App.css'
+import './App.scss'
 import axios from 'axios'
 import Button from './components/Button/Button'
 import useCalculationsRepo from './functions/useCalculator'

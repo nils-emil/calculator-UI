@@ -13,15 +13,15 @@
   color: aliceblue;
   font-size: 2rem;
   height: 30%;
-}
-.calculator-result > span {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-right: 1.5rem;
-  text-align: right;
-}
 
+  & > span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 1.5rem;
+    text-align: right;
+  }
+}
 .calculation {
   font-size: 1rem;
 }

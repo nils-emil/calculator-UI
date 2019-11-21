@@ -80,8 +80,6 @@ function App () {
     return (num1Active) ? num1.indexOf('.') > -1 : num2.indexOf('.') > -1
   }
 
-  const resultClasses = 'calculation-result'
-
   return (
     <React.Fragment>
       <div className="App">
@@ -90,7 +88,7 @@ function App () {
             <div className='calculation'>
               {getAbriviatedNumber(num1, 13)} {operation} {getAbriviatedNumber(num2, 13)}
             </div>
-            <div className={resultClasses}>
+            <div className='calculation-result'>
               {error ? <p className="error">{error}</p> : getAbriviatedNumber(result, 8)}
             </div>
           </span>

@@ -37,11 +37,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 Using the production Dockerfile, build and tag the Docker image:
 ```
- docker build -t react-docker-app:prod .
+ docker build -t react-docker-app .
 ```
 Spin up the container:
 ```
-docker run -it -p 80:80 --rm react-docker-app:prod
+docker run -it -p 80:80 --rm react-docker-app
 ```
 
 Test with a new Docker Compose file:

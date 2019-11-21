@@ -44,12 +44,11 @@ Spin up the container:
 docker run -it -p 80:80 --rm react-docker-app
 ```
 
-Test with a new Docker Compose file:
+Or test with a new Docker Compose file:
 
 ```
 docker-compose up -d
 ```
 
-### Configuration NB!
+### Configuration
 Backend api URL is configurable from .env file in root folder
-Put container name as backend url if the backend is in a container aswell, otherwise localhost or the server where the backend is located.

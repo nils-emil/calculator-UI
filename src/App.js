@@ -16,7 +16,7 @@ import {
 } from './constants/operators'
 import ResultModal from './components/ResultModal/ResultModal'
 
-axios.defaults.baseURL = 'http://localhost:8080'
+axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 function App () {

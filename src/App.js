@@ -26,7 +26,7 @@ function App () {
   const [operation, setOperation] = useState('')
   // if num1 isnt active then that means num2 is active
   const [num1Active, setNum1Active] = useState(true)
-  const [result, error, calculateResult] = useCalculationsRepo(num1, num2, operation)
+  const [result, error, calculateResult] = useCalculationsRepo()
 
   useEffect(() => {}, [num1, num2, operation])
 

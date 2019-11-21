@@ -33,9 +33,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### Producton with docker
+### Deployment with docker
 
-Using the production Dockerfile, build and tag the Docker image:
+Using the deployment Dockerfile, build the Docker image:
 ```
  docker build -t react-docker-app .
 ```
@@ -50,5 +50,6 @@ Test with a new Docker Compose file:
 docker-compose up -d
 ```
 
-### Configuration
+### Configuration NB!
 Backend api URL is configurable from .env file in root folder
+Put container name as backend url if the backend is in a container aswell, otherwise localhost or the server where the backend is located.
